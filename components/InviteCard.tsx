@@ -1,10 +1,8 @@
 "use client";
 
 import { useSearchParams } from "next/navigation";
-import { couple, city, events, rsvpBy } from "@/lib/config";
-import Countdown from "./Countdown";
+import { couple, events, rsvpBy } from "@/lib/config";
 import Rsvp from "./Rsvp";
-import Petals from "./Petals";
 import DesignHero from "./DesignHero";
 
 /**
@@ -35,41 +33,8 @@ export default function InviteCard() {
 
   return (
     <main>
-      {/* ---------- New design hero (preview, above the existing hero) ---------- */}
-      <DesignHero />
-
-      {/* ---------- Hero ---------- */}
-      <header className="hero">
-        <Petals />
-        <p className="bismillah fadeUp">Together with their families</p>
-
-        {guestName ? (
-          <div className="fadeUp d1">
-            <p className="invitedTo">Warmly inviting</p>
-            <p className="guestName">{guestName}</p>
-          </div>
-        ) : (
-          <p className="invitedTo fadeUp d1" style={{ marginBottom: "2rem" }}>
-            request the honour of your presence at the wedding of
-          </p>
-        )}
-
-        <h1 className="coupleNames fadeUp d2">
-          {couple.groom}
-          <span className="amp">&amp;</span>
-          {couple.bride}
-        </h1>
-
-        <p className="heroDate fadeUp d3">19 · 12 · 2026</p>
-        <p className="heroCity fadeUp d3">{city}</p>
-      </header>
-
-      {/* ---------- Countdown ---------- */}
-      <section className="section fadeUp d4" style={{ paddingTop: "0.5rem" }}>
-        <h2 className="sectionTitle">The Big Day</h2>
-        <div className="rule">✦</div>
-        <Countdown />
-      </section>
+      {/* ---------- Hero (card + live countdown) ---------- */}
+      <DesignHero guestName={guestName} />
 
       {/* ---------- Schedule ---------- */}
       <section className="section">

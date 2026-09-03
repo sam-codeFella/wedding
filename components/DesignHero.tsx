@@ -1,18 +1,26 @@
-import { couple } from "@/lib/config";
+import { couple, city, weddingDate } from "@/lib/config";
+import Countdown from "./Countdown";
+import Petals from "./Petals";
 
 /**
- * Ported 1:1 from the "Hero" screen in Claude Design
- * (Website design setup/Shams & Sania Wedding.dc.html).
- * Sits above the existing hero for now — kept separate until
- * the rest of that design is folded in.
+ * Ported from the "Hero" screen in Claude Design
+ * (Website design setup/Shams & Sania Wedding.dc.html), then merged with
+ * the live bits from the original hero: guest-name personalisation,
+ * falling petals, and "The Big Day" countdown (kept on the same dark
+ * backdrop so it reads as one hero block instead of a new section).
  */
-export default function DesignHero() {
+export default function DesignHero({ guestName = "" }: { guestName?: string }) {
+  const dateLabel = `${String(weddingDate.getDate()).padStart(2, "0")} · ${String(
+    weddingDate.getMonth() + 1
+  ).padStart(2, "0")} · ${weddingDate.getFullYear()}`;
+
   return (
     <section
       style={{
         background:
           "radial-gradient(ellipse at 50% 40%, #16514a 0%, #0d3833 60%, #092a26 100%)",
         display: "flex",
+        flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
         padding: 0,
@@ -34,6 +42,7 @@ export default function DesignHero() {
           pointerEvents: "none",
         }}
       />
+
       <div
         style={{
           position: "relative",
@@ -75,18 +84,47 @@ export default function DesignHero() {
           >
             Together with their families
           </div>
-          <div
-            style={{
-              fontFamily: "'Cormorant Garamond', serif",
-              fontStyle: "italic",
-              fontSize: "max(13px, 2.7cqw)",
-              lineHeight: 1.3,
-              color: "#3d4a46",
-              letterSpacing: "0.02em",
-            }}
-          >
-            request the honour of your presence at the wedding of
-          </div>
+          {guestName ? (
+            <>
+              <div
+                style={{
+                  fontFamily: "'Cormorant Garamond', serif",
+                  fontStyle: "italic",
+                  fontSize: "max(13px, 2.7cqw)",
+                  lineHeight: 1.3,
+                  color: "#3d4a46",
+                  letterSpacing: "0.02em",
+                }}
+              >
+                Warmly inviting
+              </div>
+              <div
+                style={{
+                  fontFamily: "'Cormorant Garamond', serif",
+                  fontStyle: "italic",
+                  fontWeight: 600,
+                  fontSize: "max(15px, 3.2cqw)",
+                  lineHeight: 1.2,
+                  color: "#0f3d38",
+                }}
+              >
+                {guestName}
+              </div>
+            </>
+          ) : (
+            <div
+              style={{
+                fontFamily: "'Cormorant Garamond', serif",
+                fontStyle: "italic",
+                fontSize: "max(13px, 2.7cqw)",
+                lineHeight: 1.3,
+                color: "#3d4a46",
+                letterSpacing: "0.02em",
+              }}
+            >
+              request the honour of your presence at the wedding of
+            </div>
+          )}
         </div>
         <div
           style={{
@@ -146,7 +184,7 @@ export default function DesignHero() {
               marginTop: "1.8cqw",
             }}
           >
-            19 · 12 · 2026
+            {dateLabel}
           </div>
           <div
             style={{
@@ -158,10 +196,30 @@ export default function DesignHero() {
               marginTop: "0.4cqw",
             }}
           >
-            Prayagraj, Uttar Pradesh
+            {city}
           </div>
         </div>
       </div>
+
+      <div
+        style={{
+          position: "relative",
+          width: "100%",
+          maxWidth: 720,
+          padding: "56px 24px 72px",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+        }}
+      >
+        <h2 className="sectionTitle" style={{ color: "var(--gold-light)" }}>
+          The Big Day
+        </h2>
+        <div className="rule">✦</div>
+        <Countdown />
+      </div>
+
+      <Petals />
     </section>
   );
 }
