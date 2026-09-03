@@ -1,8 +1,8 @@
 "use client";
 
-const PETALS = ["🌼", "🌸", "🌺", "🌼", "✨", "🌸", "🌼", "✨"];
+const PETALS = ["🍃", "🌿", "🍃", "✨", "🌱", "🍃", "🌿", "✨"];
 
-/** Gently falling marigold petals over the hero. Pure CSS animation. */
+/** Gently falling leaf sprigs over the hero. Pure CSS animation. */
 export default function Petals() {
   return (
     <div aria-hidden="true">

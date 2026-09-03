@@ -5,12 +5,13 @@ import { couple, city, events, rsvpBy } from "@/lib/config";
 import Countdown from "./Countdown";
 import Rsvp from "./Rsvp";
 import Petals from "./Petals";
+import DesignHero from "./DesignHero";
 
 /**
  * Personalisation via the URL — build links like:
  *   https://your-domain.com/?to=Sharma%20Family
  *   https://your-domain.com/?to=Rahul&guests=2
- *   https://your-domain.com/?to=Aunty%20Ji&events=haldi,mehendi,nikah
+ *   https://your-domain.com/?to=Aunty%20Ji&events=haldi,nikah
  *
  * ?to=      guest / family name shown on the card and pre-filled in RSVP
  * ?guests=  pre-fills guest count in the RSVP form
@@ -34,6 +35,9 @@ export default function InviteCard() {
 
   return (
     <main>
+      {/* ---------- New design hero (preview, above the existing hero) ---------- */}
+      <DesignHero />
+
       {/* ---------- Hero ---------- */}
       <header className="hero">
         <Petals />

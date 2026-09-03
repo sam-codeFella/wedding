@@ -6,3 +6,6 @@ out/
 *.tsbuildinfo
 next-env.d.ts
 .DS_Store
+
+# Claude Design source files — not part of the shipped site
+Website design setup/

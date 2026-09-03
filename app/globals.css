@@ -1,11 +1,12 @@
 :root {
-  --maroon: #5e1a1d;
-  --maroon-deep: #40090f;
-  --gold: #c9a227;
-  --gold-light: #e8cf7a;
-  --ivory: #fdf8ef;
-  --ivory-warm: #f7edd8;
-  --ink: #2e1a12;
+  --green: #1c4446;
+  --green-deep: #0f2729;
+  --gold: #b08d3f;
+  --gold-light: #d4b876;
+  --beige: #f5ead8;
+  --beige-warm: #ecdcbd;
+  --ink: #221f18;
+  --muted: #57685a;
   --serif: "Cormorant Garamond", Georgia, serif;
   --sans: "Jost", "Segoe UI", system-ui, sans-serif;
 }
@@ -18,8 +19,8 @@ body {
   font-family: var(--sans);
   color: var(--ink);
   background:
-    radial-gradient(1200px 600px at 50% -100px, #fff7e6 0%, transparent 60%),
-    var(--ivory);
+    radial-gradient(1200px 600px at 50% -100px, #fbf1de 0%, transparent 60%),
+    var(--beige);
   min-height: 100vh;
   overflow-x: hidden;
 }
@@ -36,7 +37,7 @@ body {
   font-family: var(--serif);
   font-size: 2rem;
   font-weight: 600;
-  color: var(--maroon);
+  color: var(--green);
   text-align: center;
   letter-spacing: 0.04em;
 }
@@ -65,7 +66,7 @@ body {
   text-align: center;
   padding: 5.5rem 1.25rem 4rem;
   background:
-    radial-gradient(800px 420px at 50% -180px, rgba(201, 162, 39, 0.16), transparent 70%);
+    radial-gradient(800px 420px at 50% -180px, rgba(176, 141, 63, 0.16), transparent 70%);
   overflow: hidden;
 }
 
@@ -81,14 +82,14 @@ body {
 .invitedTo {
   font-size: 1rem;
   letter-spacing: 0.12em;
-  color: #7c5a3a;
+  color: var(--muted);
   margin-bottom: 0.4rem;
 }
 
 .guestName {
   font-family: var(--serif);
   font-size: 1.6rem;
-  color: var(--maroon);
+  color: var(--green);
   font-style: italic;
   margin-bottom: 2rem;
 }
@@ -97,7 +98,7 @@ body {
   font-family: var(--serif);
   font-weight: 600;
   font-size: clamp(2.6rem, 9vw, 4.4rem);
-  color: var(--maroon-deep);
+  color: var(--green-deep);
   line-height: 1.1;
 }
 
@@ -115,12 +116,12 @@ body {
   font-size: 1.05rem;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--maroon);
+  color: var(--green);
 }
 
 .heroCity {
   margin-top: 0.5rem;
-  color: #7c5a3a;
+  color: var(--muted);
   letter-spacing: 0.08em;
 }
 
@@ -134,14 +135,14 @@ body {
 }
 
 .countBox {
-  background: linear-gradient(160deg, var(--maroon), var(--maroon-deep));
-  color: var(--ivory);
-  border: 1px solid rgba(201, 162, 39, 0.55);
+  background: linear-gradient(160deg, var(--green), var(--green-deep));
+  color: var(--beige);
+  border: 1px solid rgba(176, 141, 63, 0.55);
   border-radius: 14px;
   min-width: 86px;
   padding: 1rem 0.6rem 0.8rem;
   text-align: center;
-  box-shadow: 0 10px 24px rgba(64, 9, 15, 0.18);
+  box-shadow: 0 10px 24px rgba(15, 39, 41, 0.18);
 }
 
 .countNum {
@@ -169,15 +170,15 @@ body {
   gap: 1rem;
   align-items: flex-start;
   background: #fffdf7;
-  border: 1px solid rgba(201, 162, 39, 0.45);
+  border: 1px solid rgba(176, 141, 63, 0.45);
   border-radius: 16px;
   padding: 1.2rem 1.3rem;
-  box-shadow: 0 6px 18px rgba(94, 26, 29, 0.07);
+  box-shadow: 0 6px 18px rgba(28, 68, 70, 0.07);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 .eventCard:hover {
   transform: translateY(-3px);
-  box-shadow: 0 12px 26px rgba(94, 26, 29, 0.13);
+  box-shadow: 0 12px 26px rgba(28, 68, 70, 0.13);
 }
 
 .eventEmoji { font-size: 1.9rem; line-height: 1.2; }
@@ -186,19 +187,19 @@ body {
   font-family: var(--serif);
   font-size: 1.35rem;
   font-weight: 600;
-  color: var(--maroon);
+  color: var(--green);
 }
 
-.eventMeta { margin-top: 0.3rem; font-size: 0.92rem; color: #5a4632; line-height: 1.55; }
+.eventMeta { margin-top: 0.3rem; font-size: 0.92rem; color: var(--muted); line-height: 1.55; }
 
 .eventTags { margin-top: 0.5rem; display: flex; flex-wrap: wrap; gap: 0.4rem; }
 
 .tag {
   font-size: 0.72rem;
   letter-spacing: 0.06em;
-  background: var(--ivory-warm);
-  border: 1px solid rgba(201, 162, 39, 0.5);
-  color: #7c5a3a;
+  background: var(--beige-warm);
+  border: 1px solid rgba(176, 141, 63, 0.5);
+  color: var(--muted);
   padding: 0.18rem 0.6rem;
   border-radius: 999px;
 }
@@ -207,7 +208,7 @@ body {
   display: inline-block;
   margin-top: 0.55rem;
   font-size: 0.85rem;
-  color: var(--maroon);
+  color: var(--green);
   text-decoration: none;
   border-bottom: 1px solid var(--gold);
   padding-bottom: 1px;
@@ -217,14 +218,14 @@ body {
 /* ---------- RSVP ---------- */
 
 .rsvpCard {
-  background: linear-gradient(170deg, #fffdf7, var(--ivory-warm));
-  border: 1px solid rgba(201, 162, 39, 0.55);
+  background: linear-gradient(170deg, #fffdf7, var(--beige-warm));
+  border: 1px solid rgba(176, 141, 63, 0.55);
   border-radius: 20px;
   padding: 2rem 1.6rem;
-  box-shadow: 0 14px 34px rgba(94, 26, 29, 0.1);
+  box-shadow: 0 14px 34px rgba(28, 68, 70, 0.1);
 }
 
-.rsvpNote { text-align: center; color: #7c5a3a; font-size: 0.92rem; margin-bottom: 1.6rem; }
+.rsvpNote { text-align: center; color: var(--muted); font-size: 0.92rem; margin-bottom: 1.6rem; }
 
 .field { margin-bottom: 1.15rem; }
 
@@ -233,7 +234,7 @@ body {
   font-size: 0.8rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--maroon);
+  color: var(--green);
   margin-bottom: 0.4rem;
 }
 
@@ -243,7 +244,7 @@ body {
   font-size: 1rem;
   color: var(--ink);
   background: #fff;
-  border: 1px solid rgba(94, 26, 29, 0.25);
+  border: 1px solid rgba(28, 68, 70, 0.25);
   border-radius: 10px;
   padding: 0.7rem 0.85rem;
   outline: none;
@@ -251,7 +252,7 @@ body {
 }
 .input:focus, .textarea:focus, .select:focus {
   border-color: var(--gold);
-  box-shadow: 0 0 0 3px rgba(201, 162, 39, 0.18);
+  box-shadow: 0 0 0 3px rgba(176, 141, 63, 0.18);
 }
 .textarea { min-height: 96px; resize: vertical; }
 
@@ -260,7 +261,7 @@ body {
 .choice {
   flex: 1 1 160px;
   text-align: center;
-  border: 1px solid rgba(94, 26, 29, 0.3);
+  border: 1px solid rgba(28, 68, 70, 0.3);
   border-radius: 12px;
   padding: 0.75rem 0.6rem;
   cursor: pointer;
@@ -270,15 +271,15 @@ body {
   user-select: none;
 }
 .choice.selected {
-  background: var(--maroon);
-  border-color: var(--maroon);
+  background: var(--green);
+  border-color: var(--green);
   color: var(--gold-light);
 }
 
 .checkRow { display: flex; flex-wrap: wrap; gap: 0.5rem; }
 
 .check {
-  border: 1px solid rgba(94, 26, 29, 0.3);
+  border: 1px solid rgba(28, 68, 70, 0.3);
   border-radius: 999px;
   padding: 0.45rem 0.95rem;
   font-size: 0.88rem;
@@ -290,7 +291,7 @@ body {
 .check.selected {
   background: var(--gold);
   border-color: var(--gold);
-  color: #3d2b00;
+  color: var(--green-deep);
 }
 
 .submitBtn {
@@ -300,15 +301,15 @@ body {
   font-size: 1rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--ivory);
-  background: linear-gradient(160deg, var(--maroon), var(--maroon-deep));
+  color: var(--beige);
+  background: linear-gradient(160deg, var(--green), var(--green-deep));
   border: 1px solid var(--gold);
   border-radius: 12px;
   padding: 0.95rem;
   cursor: pointer;
   transition: transform 0.15s ease, box-shadow 0.2s ease;
 }
-.submitBtn:hover { transform: translateY(-2px); box-shadow: 0 10px 22px rgba(64, 9, 15, 0.28); }
+.submitBtn:hover { transform: translateY(-2px); box-shadow: 0 10px 22px rgba(15, 39, 41, 0.28); }
 .submitBtn:disabled { opacity: 0.6; cursor: default; transform: none; box-shadow: none; }
 
 .thanks {
@@ -318,7 +319,7 @@ body {
 .thanksTitle {
   font-family: var(--serif);
   font-size: 1.7rem;
-  color: var(--maroon);
+  color: var(--green);
   margin-bottom: 0.6rem;
 }
 
@@ -329,13 +330,13 @@ body {
 .footer {
   text-align: center;
   padding: 3rem 1rem 3.5rem;
-  color: #7c5a3a;
+  color: var(--muted);
 }
 .hashtag {
   font-family: var(--serif);
   font-style: italic;
   font-size: 1.3rem;
-  color: var(--maroon);
+  color: var(--green);
   margin-bottom: 0.4rem;
 }
 
@@ -355,7 +356,7 @@ body {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* floating marigold petals */
+/* floating leaf sprigs */
 .petal {
   position: absolute;
   top: -30px;

@@ -21,7 +21,7 @@ Everything editable (names, dates, venues, events, form wiring) lives in
    - **Full name** — short answer
    - **Attending?** — multiple choice: `Joyfully attending` / `Regretfully can't make it`
    - **Number of guests** — short answer
-   - **Events you'll attend** — checkboxes: `Haldi`, `Mehendi`, `Sangeet`, `Wedding`, `Reception`
+   - **Events you'll attend** — checkboxes: `Haldi`, `Wedding`, `Reception`
    - **Message for the couple** — paragraph
    - Set every question to *not required* (the card does its own validation),
      and under Settings turn **off** "Limit to 1 response" (that forces sign-in).
@@ -55,7 +55,7 @@ The card reads URL parameters:
 |---|---|---|
 | `to` | Greets the guest by name, pre-fills RSVP name | `?to=Sharma%20Family` |
 | `guests` | Pre-fills guest count | `?guests=4` |
-| `events` | Shows only those events (ids from config: `haldi,mehendi,sangeet,nikah,reception`) | `?events=nikah,reception` |
+| `events` | Shows only those events (ids from config: `haldi,nikah,reception`) | `?events=nikah,reception` |
 
 So a close-family link might be
 `https://your-domain.com/?to=Khala%20Jaan&guests=5`

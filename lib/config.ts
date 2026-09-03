@@ -17,7 +17,7 @@ export const city = "Prayagraj (Allahabad), Uttar Pradesh";
 
 // ------------------------------------------------------------
 // EVENTS — add/remove/edit freely. `id` is used in invite links
-// (?events=haldi,sangeet) to show a guest only their events.
+// (?events=haldi,nikah) to show a guest only their events.
 // mapUrl: paste the "Share > Copy link" URL from Google Maps.
 // ------------------------------------------------------------
 export type WeddingEvent = {
@@ -39,29 +39,9 @@ export const events: WeddingEvent[] = [
     emoji: "🌼",
     date: "Thursday, 17 December 2026",
     time: "11:00 AM onwards",
-    venue: "Residence, Allahabad (TBD)",
-    mapUrl: "https://maps.google.com/?q=Allahabad",
+    venue: "Welcomhotel by ITC Hotels, Prayagraj",
+    mapUrl: "https://maps.app.goo.gl/9bFsyDX2ziGni1nU6",
     dress: "Yellow / floral",
-  },
-  {
-    id: "mehendi",
-    name: "Mehendi",
-    emoji: "🍃",
-    date: "Thursday, 17 December 2026",
-    time: "4:00 PM onwards",
-    venue: "Residence, Allahabad (TBD)",
-    mapUrl: "https://maps.google.com/?q=Allahabad",
-    dress: "Green / pastels",
-  },
-  {
-    id: "sangeet",
-    name: "Sangeet",
-    emoji: "🎶",
-    date: "Friday, 18 December 2026",
-    time: "7:00 PM onwards",
-    venue: "Venue TBD, Allahabad",
-    mapUrl: "https://maps.google.com/?q=Allahabad",
-    dress: "Festive / sparkle",
   },
   {
     id: "nikah",
@@ -69,8 +49,8 @@ export const events: WeddingEvent[] = [
     emoji: "💍",
     date: "Saturday, 19 December 2026",
     time: "7:00 PM onwards",
-    venue: "Venue TBD, Allahabad",
-    mapUrl: "https://maps.google.com/?q=Allahabad",
+    venue: "Welcomhotel by ITC Hotels, Prayagraj",
+    mapUrl: "https://maps.app.goo.gl/9bFsyDX2ziGni1nU6",
     dress: "Traditional",
     note: "Dinner to follow",
   },
@@ -80,8 +60,8 @@ export const events: WeddingEvent[] = [
     emoji: "✨",
     date: "Sunday, 20 December 2026",
     time: "7:00 PM onwards",
-    venue: "Venue TBD, Allahabad",
-    mapUrl: "https://maps.google.com/?q=Allahabad",
+    venue: "Welcomhotel by ITC Hotels, Prayagraj",
+    mapUrl: "https://maps.app.goo.gl/9bFsyDX2ziGni1nU6",
   },
 ];
 
@@ -94,8 +74,7 @@ export const events: WeddingEvent[] = [
 //      - Attending?           (multiple choice: "Joyfully attending" /
 //                              "Regretfully can't make it")
 //      - Number of guests     (short answer)
-//      - Events you'll attend (checkboxes: Haldi, Mehendi, Sangeet,
-//                              Wedding, Reception)
+//      - Events you'll attend (checkboxes: Haldi, Wedding, Reception)
 //      - Message for the couple (paragraph)
 // 2. Click Send > link icon > copy the form link. The long ID between
 //    /d/e/ and /viewform is your formId.
@@ -105,14 +84,13 @@ export const events: WeddingEvent[] = [
 // ------------------------------------------------------------
 
 export const googleForm = {
-  // e.g. "1FAIpQLSf...long-id..."
-  formId: "PASTE_YOUR_FORM_ID_HERE",
+  formId: "1FAIpQLSdpeSdxy1QkETb3NWfBGkQclLsQQGoB4GRlIv_myhqqPT_gnA",
   fields: {
-    name: "entry.1111111111",
-    attending: "entry.2222222222",
-    guestCount: "entry.3333333333",
-    events: "entry.4444444444", // checkbox question — sent once per selected event
-    message: "entry.5555555555",
+    name: "entry.2074495908",
+    attending: "entry.2115993116",
+    guestCount: "entry.26841489",
+    events: "entry.822741249", // checkbox question — sent once per selected event
+    message: "entry.983454350",
   },
   // Must EXACTLY match the option text in your Google Form:
   attendingOptions: {
@@ -122,8 +100,6 @@ export const googleForm = {
   // Checkbox option labels in the form, keyed by event id above:
   eventLabels: {
     haldi: "Haldi",
-    mehendi: "Mehendi",
-    sangeet: "Sangeet",
     nikah: "Wedding",
     reception: "Reception",
   } as Record<string, string>,
