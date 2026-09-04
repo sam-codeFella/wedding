@@ -4,6 +4,7 @@ import { useSearchParams } from "next/navigation";
 import { couple, events, rsvpBy } from "@/lib/config";
 import Rsvp from "./Rsvp";
 import DesignHero from "./DesignHero";
+import Invitation from "./Invitation";
 
 /**
  * Personalisation via the URL — build links like:
@@ -35,6 +36,9 @@ export default function InviteCard() {
     <main>
       {/* ---------- Hero (card + live countdown) ---------- */}
       <DesignHero guestName={guestName} />
+
+      {/* ---------- Invitation ---------- */}
+      <Invitation />
 
       {/* ---------- Schedule ---------- */}
       <section className="section">
@@ -85,6 +89,7 @@ export default function InviteCard() {
 
       {/* ---------- Footer ---------- */}
       <footer className="footer">
+        <p className="designCredit">Design By Shireen Hasnain</p>
         {couple.hashtag ? <p className="hashtag">{couple.hashtag}</p> : null}
         <p>With love, {couple.groom} &amp; {couple.bride}</p>
       </footer>

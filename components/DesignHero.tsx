@@ -9,10 +9,25 @@ import Petals from "./Petals";
  * falling petals, and "The Big Day" countdown (kept on the same dark
  * backdrop so it reads as one hero block instead of a new section).
  */
+const MONTHS = [
+  "January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December",
+];
+
+function ordinal(day: number) {
+  if (day % 10 === 1 && day !== 11) return "st";
+  if (day % 10 === 2 && day !== 12) return "nd";
+  if (day % 10 === 3 && day !== 13) return "rd";
+  return "th";
+}
+
 export default function DesignHero({ guestName = "" }: { guestName?: string }) {
   const dateLabel = `${String(weddingDate.getDate()).padStart(2, "0")} · ${String(
     weddingDate.getMonth() + 1
   ).padStart(2, "0")} · ${weddingDate.getFullYear()}`;
+  const bigDayLabel = `${weddingDate.getDate()}${ordinal(weddingDate.getDate())} ${
+    MONTHS[weddingDate.getMonth()]
+  } ${weddingDate.getFullYear()}`;
 
   return (
     <section
@@ -54,7 +69,7 @@ export default function DesignHero({ guestName = "" }: { guestName?: string }) {
       >
         <img
           src="/hero/card-green.jpg"
-          alt={`${couple.bride} and ${couple.groom} wedding card`}
+          alt={`${couple.groom} and ${couple.bride} wedding card`}
           style={{ display: "block", width: "100%", height: "100%", objectFit: "cover" }}
         />
         <div
@@ -147,9 +162,10 @@ export default function DesignHero({ guestName = "" }: { guestName?: string }) {
               lineHeight: 1,
               color: "#0f3d38",
               letterSpacing: "0.02em",
+              marginTop: "3cqw",
             }}
           >
-            {couple.bride}
+            {couple.groom}
           </div>
           <div
             style={{
@@ -172,7 +188,7 @@ export default function DesignHero({ guestName = "" }: { guestName?: string }) {
               letterSpacing: "0.02em",
             }}
           >
-            {couple.groom}
+            {couple.bride}
           </div>
           <div
             style={{
@@ -216,6 +232,7 @@ export default function DesignHero({ guestName = "" }: { guestName?: string }) {
           The Big Day
         </h2>
         <div className="rule">✦</div>
+        <p className="bigDayDate">{bigDayLabel}</p>
         <Countdown />
       </div>
 

@@ -37,7 +37,7 @@ export const events: WeddingEvent[] = [
     id: "haldi",
     name: "Haldi",
     emoji: "🌼",
-    date: "Thursday, 17 December 2026",
+    date: "Friday, 18 December 2026",
     time: "11:00 AM onwards",
     venue: "Welcomhotel by ITC Hotels, Prayagraj",
     mapUrl: "https://maps.app.goo.gl/9bFsyDX2ziGni1nU6",
