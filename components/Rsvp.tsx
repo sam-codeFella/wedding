@@ -111,7 +111,7 @@ export default function Rsvp({ defaultName, defaultGuests, invitedEventIds, rsvp
           className="input"
           value={name}
           onChange={(e) => setName(e.target.value)}
-          placeholder="e.g. Sharma Family"
+          placeholder="Please enter your family name"
         />
       </div>
 
