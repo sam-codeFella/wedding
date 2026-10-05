@@ -29,16 +29,10 @@ export default function Rsvp({ defaultName, defaultGuests, invitedEventIds, rsvp
   const [name, setName] = useState(defaultName);
   const [attending, setAttending] = useState<"yes" | "no" | null>(null);
   const [guests, setGuests] = useState(defaultGuests);
-  const [selected, setSelected] = useState<string[]>(shownEvents.map((e) => e.id));
   const [message, setMessage] = useState("");
   const [busy, setBusy] = useState(false);
   const [done, setDone] = useState(false);
   const [error, setError] = useState("");
-
-  const toggleEvent = (id: string) =>
-    setSelected((prev) =>
-      prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id]
-    );
 
   async function submit() {
     setError("");
@@ -59,7 +53,7 @@ export default function Rsvp({ defaultName, defaultGuests, invitedEventIds, rsvp
     );
     if (guests.trim()) body.append(googleForm.fields.guestCount, guests.trim());
     if (attending === "yes") {
-      for (const id of selected) {
+      for (const { id } of shownEvents) {
         const label = googleForm.eventLabels[id];
         if (label) body.append(googleForm.fields.events, label);
       }
@@ -153,24 +147,6 @@ export default function Rsvp({ defaultName, defaultGuests, invitedEventIds, rsvp
               onChange={(e) => setGuests(e.target.value)}
               placeholder="e.g. 3"
             />
-          </div>
-
-          <div className="field">
-            <span className="fieldLabel">Which events?</span>
-            <div className="checkRow">
-              {shownEvents.map((e) => (
-                <div
-                  key={e.id}
-                  className={`check ${selected.includes(e.id) ? "selected" : ""}`}
-                  onClick={() => toggleEvent(e.id)}
-                  role="button"
-                  tabIndex={0}
-                  onKeyDown={(ev) => ev.key === "Enter" && toggleEvent(e.id)}
-                >
-                  {e.emoji} {e.name}
-                </div>
-              ))}
-            </div>
           </div>
         </>
       )}

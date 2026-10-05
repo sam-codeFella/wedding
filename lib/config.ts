@@ -30,6 +30,7 @@ export type WeddingEvent = {
   mapUrl: string;
   dress?: string;
   note?: string;
+  images?: string[]; // paths under /public, shown at the top of the card
 };
 
 export const events: WeddingEvent[] = [
@@ -42,6 +43,7 @@ export const events: WeddingEvent[] = [
     venue: "Welcomhotel by ITC Hotels, Prayagraj",
     mapUrl: "https://maps.app.goo.gl/9bFsyDX2ziGni1nU6",
     dress: "Yellow / floral",
+    images: ["/venue/regal_hall.jpg"],
   },
   {
     id: "nikah",
@@ -53,6 +55,7 @@ export const events: WeddingEvent[] = [
     mapUrl: "https://maps.app.goo.gl/9bFsyDX2ziGni1nU6",
     dress: "Traditional",
     note: "Dinner to follow",
+    images: ["/venue/overview-shot.jpeg"],
   },
   {
     id: "reception",
@@ -62,8 +65,18 @@ export const events: WeddingEvent[] = [
     time: "7:00 PM onwards",
     venue: "Welcomhotel by ITC Hotels, Prayagraj",
     mapUrl: "https://maps.app.goo.gl/9bFsyDX2ziGni1nU6",
+    dress: "Suits & classic western",
+    images: ["/venue/pool-dusk-shot.jpg"],
   },
 ];
+
+// Where out-of-town guests are staying — shown above the RSVP.
+export const stay = {
+  name: "The British Kothi",
+  blurb: "Our guests will be staying here.",
+  image: "/venue/british_kothi.jpeg",
+  mapUrl: "https://maps.app.goo.gl/Ca7LRruk2fD5XL3F9",
+};
 
 // ------------------------------------------------------------
 // GOOGLE FORM WIRING (for the custom RSVP UI)

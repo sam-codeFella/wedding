@@ -1,7 +1,7 @@
 "use client";
 
 import { useSearchParams } from "next/navigation";
-import { couple, events, rsvpBy } from "@/lib/config";
+import { couple, events, rsvpBy, stay } from "@/lib/config";
 import Rsvp from "./Rsvp";
 import DesignHero from "./DesignHero";
 import Invitation from "./Invitation";
@@ -47,8 +47,16 @@ export default function InviteCard() {
         <div className="eventGrid">
           {shownEvents.map((e) => (
             <article key={e.id} className="eventCard">
-              <div className="eventEmoji">{e.emoji}</div>
-              <div>
+              {e.images?.length ? (
+                <div className={`eventPhotos${e.images.length > 1 ? " multi" : ""}`}>
+                  {e.images.map((src) => (
+                    <img key={src} src={src} alt={`${e.name} venue`} loading="lazy" />
+                  ))}
+                </div>
+              ) : null}
+              <div className="eventBody">
+                <div className="eventEmoji">{e.emoji}</div>
+                <div>
                 <h3 className="eventName">{e.name}</h3>
                 <p className="eventMeta">
                   {e.date} · {e.time}
@@ -69,10 +77,37 @@ export default function InviteCard() {
                 >
                   📍 Open in Maps
                 </a>
+                </div>
               </div>
             </article>
           ))}
         </div>
+      </section>
+
+      {/* ---------- Stay ---------- */}
+      <section className="section">
+        <h2 className="sectionTitle">Where You&apos;ll Stay</h2>
+        <div className="rule">✦</div>
+        <article className="eventCard">
+          <div className="eventPhotos">
+            <img src={stay.image} alt={stay.name} loading="lazy" />
+          </div>
+          <div className="eventBody">
+            <div className="eventEmoji">🏡</div>
+            <div>
+              <h3 className="eventName">{stay.name}</h3>
+              <p className="eventMeta">{stay.blurb}</p>
+              <a
+                className="mapLink"
+                href={stay.mapUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                📍 Open in Maps
+              </a>
+            </div>
+          </div>
+        </article>
       </section>
 
       {/* ---------- RSVP ---------- */}

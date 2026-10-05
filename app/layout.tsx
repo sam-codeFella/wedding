@@ -5,6 +5,14 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: `${couple.groom} & ${couple.bride} — Wedding Invitation`,
   description: `You are warmly invited to the wedding of ${couple.groom} & ${couple.bride}, December 2026, ${city}.`,
+  icons: {
+    icon: [
+      { url: "/favicon/favicon.ico", sizes: "any" },
+      { url: "/favicon/favicon-32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon/favicon-192.png", sizes: "192x192", type: "image/png" },
+    ],
+    apple: "/favicon/apple-touch-icon.png",
+  },
   openGraph: {
     title: `${couple.groom} & ${couple.bride} — Wedding Invitation`,
     description: `Join us in ${city} this December. Tap to see the schedule and RSVP.`,
