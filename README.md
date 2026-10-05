@@ -21,7 +21,7 @@ Everything editable (names, dates, venues, events, form wiring) lives in
    - **Full name** — short answer
    - **Attending?** — multiple choice: `Joyfully attending` / `Regretfully can't make it`
    - **Number of guests** — short answer
-   - **Events you'll attend** — checkboxes: `Haldi`, `Wedding`, `Reception`
+   - **Events you'll attend** — checkboxes: `Haldi`, `Nikkah`, `Reception`
    - **Message for the couple** — paragraph
    - Set every question to *not required* (the card does its own validation),
      and under Settings turn **off** "Limit to 1 response" (that forces sign-in).

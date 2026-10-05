@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { events, googleForm } from "@/lib/config";
+import { contact, events, googleForm } from "@/lib/config";
 
 type Props = {
   defaultName: string;
@@ -38,6 +38,9 @@ export default function Rsvp({ defaultName, defaultGuests, invitedEventIds, rsvp
     setError("");
     if (!name.trim()) return setError("Please tell us your name 🙂");
     if (!attending) return setError("Please pick attending / not attending.");
+    const n = Number(guests);
+    if (attending === "yes" && !(Number.isInteger(n) && n >= 1 && n <= 15))
+      return setError("Please enter how many guests are coming (1–15).");
 
     if (googleForm.formId.startsWith("PASTE_")) {
       return setError(
@@ -73,7 +76,11 @@ export default function Rsvp({ defaultName, defaultGuests, invitedEventIds, rsvp
       );
       setDone(true);
     } catch {
-      setError("Something went wrong — please try again, or WhatsApp us directly.");
+      setError(
+        contact.phone
+          ? "Something went wrong — please try again, or WhatsApp us directly."
+          : "Something went wrong — please try again in a moment."
+      );
     } finally {
       setBusy(false);
     }
@@ -83,7 +90,7 @@ export default function Rsvp({ defaultName, defaultGuests, invitedEventIds, rsvp
     return (
       <div className="rsvpCard thanks">
         <p className="thanksTitle">
-          {attending === "yes" ? "Yay! Can't wait to celebrate with you 🎉" : "You'll be missed 🤍"}
+          {attending === "yes" ? "Can't wait to celebrate with you!" : "You'll be missed"}
         </p>
         <p>
           {attending === "yes"
@@ -111,32 +118,34 @@ export default function Rsvp({ defaultName, defaultGuests, invitedEventIds, rsvp
 
       <div className="field">
         <span className="fieldLabel">Will you be joining us?</span>
-        <div className="choiceRow">
-          <div
-            className={`choice ${attending === "yes" ? "selected" : ""}`}
-            onClick={() => setAttending("yes")}
-            role="button"
-            tabIndex={0}
-            onKeyDown={(e) => e.key === "Enter" && setAttending("yes")}
-          >
-            Joyfully attending 🎊
-          </div>
-          <div
-            className={`choice ${attending === "no" ? "selected" : ""}`}
-            onClick={() => setAttending("no")}
-            role="button"
-            tabIndex={0}
-            onKeyDown={(e) => e.key === "Enter" && setAttending("no")}
-          >
-            Regretfully can&apos;t 😔
-          </div>
+        <div className="choiceRow" role="radiogroup" aria-label="Will you be joining us?">
+          <label className={`choice ${attending === "yes" ? "selected" : ""}`}>
+            <input
+              type="radio"
+              name="attending"
+              className="srOnly"
+              checked={attending === "yes"}
+              onChange={() => setAttending("yes")}
+            />
+            Joyfully attending
+          </label>
+          <label className={`choice ${attending === "no" ? "selected" : ""}`}>
+            <input
+              type="radio"
+              name="attending"
+              className="srOnly"
+              checked={attending === "no"}
+              onChange={() => setAttending("no")}
+            />
+            Regretfully can&apos;t make it
+          </label>
         </div>
       </div>
 
       {attending === "yes" && (
         <>
           <div className="field">
-            <label className="fieldLabel" htmlFor="rsvp-guests">Number of guests</label>
+            <label className="fieldLabel" htmlFor="rsvp-guests">Number of guests (including you)</label>
             <input
               id="rsvp-guests"
               className="input"
@@ -166,7 +175,7 @@ export default function Rsvp({ defaultName, defaultGuests, invitedEventIds, rsvp
         {busy ? "Sending…" : "Send RSVP"}
       </button>
 
-      {error ? <p className="error">{error}</p> : null}
+      {error ? <p className="error" role="alert">{error}</p> : null}
     </div>
   );
 }

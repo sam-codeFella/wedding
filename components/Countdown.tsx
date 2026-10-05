@@ -34,7 +34,7 @@ export default function Countdown() {
   ];
 
   return (
-    <div className="countdown" aria-label="Countdown to the wedding">
+    <div className="countdown" role="timer" aria-live="off" aria-label="Countdown to the wedding">
       {boxes.map(([key, label]) => (
         <div key={key} className="countBox">
           <div className="countNum">{t ? t[key] : "–"}</div>

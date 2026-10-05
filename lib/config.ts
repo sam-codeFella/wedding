@@ -10,8 +10,8 @@ export const couple = {
 };
 
 // Wedding day (main event) — used for the countdown.
-// Format: year, monthIndex (0 = Jan, 11 = Dec), day, hour, minute
-export const weddingDate = new Date(2026, 11, 19, 19, 0, 0);
+// Pinned to IST so the countdown is right for guests in any timezone.
+export const weddingDate = new Date("2026-12-19T19:00:00+05:30");
 
 export const city = "Prayagraj (Allahabad), Uttar Pradesh";
 
@@ -23,7 +23,8 @@ export const city = "Prayagraj (Allahabad), Uttar Pradesh";
 export type WeddingEvent = {
   id: string;
   name: string;
-  emoji: string;
+  icon: "haldi" | "ring" | "sparkle";
+  start: string; // ISO with +05:30, used for add-to-calendar
   date: string; // display string
   time: string;
   venue: string;
@@ -37,7 +38,8 @@ export const events: WeddingEvent[] = [
   {
     id: "haldi",
     name: "Haldi",
-    emoji: "🌼",
+    icon: "haldi",
+    start: "2026-12-18T11:00:00+05:30",
     date: "Friday, 18 December 2026",
     time: "11:00 AM onwards",
     venue: "Welcomhotel by ITC Hotels, Prayagraj",
@@ -47,8 +49,9 @@ export const events: WeddingEvent[] = [
   },
   {
     id: "nikah",
-    name: "Wedding",
-    emoji: "💍",
+    name: "Nikkah",
+    icon: "ring",
+    start: "2026-12-19T19:00:00+05:30",
     date: "Saturday, 19 December 2026",
     time: "7:00 PM onwards",
     venue: "Welcomhotel by ITC Hotels, Prayagraj",
@@ -60,7 +63,8 @@ export const events: WeddingEvent[] = [
   {
     id: "reception",
     name: "Reception",
-    emoji: "✨",
+    icon: "sparkle",
+    start: "2026-12-20T19:00:00+05:30",
     date: "Sunday, 20 December 2026",
     time: "7:00 PM onwards",
     venue: "Welcomhotel by ITC Hotels, Prayagraj",
@@ -69,6 +73,13 @@ export const events: WeddingEvent[] = [
     images: ["/venue/pool-dusk-shot.jpg"],
   },
 ];
+
+// Who guests can reach with questions. Leave `phone` empty to hide it.
+// phone: digits with country code, no "+" or spaces (e.g. "919876543210").
+export const contact = {
+  name: "Shams",
+  phone: "918237307294",
+};
 
 // Where out-of-town guests are staying — shown above the RSVP.
 export const stay = {
@@ -87,7 +98,7 @@ export const stay = {
 //      - Attending?           (multiple choice: "Joyfully attending" /
 //                              "Regretfully can't make it")
 //      - Number of guests     (short answer)
-//      - Events you'll attend (checkboxes: Haldi, Wedding, Reception)
+//      - Events you'll attend (checkboxes: Haldi, Nikkah, Reception)
 //      - Message for the couple (paragraph)
 // 2. Click Send > link icon > copy the form link. The long ID between
 //    /d/e/ and /viewform is your formId.
@@ -113,7 +124,7 @@ export const googleForm = {
   // Checkbox option labels in the form, keyed by event id above:
   eventLabels: {
     haldi: "Haldi",
-    nikah: "Wedding",
+    nikah: "Nikkah",
     reception: "Reception",
   } as Record<string, string>,
 };

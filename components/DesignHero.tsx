@@ -22,9 +22,9 @@ function ordinal(day: number) {
 }
 
 export default function DesignHero({ guestName = "" }: { guestName?: string }) {
-  const dateLabel = `${String(weddingDate.getDate()).padStart(2, "0")} · ${String(
-    weddingDate.getMonth() + 1
-  ).padStart(2, "0")} · ${weddingDate.getFullYear()}`;
+  const dateLabel = `${weddingDate.getDate()} ${
+    MONTHS[weddingDate.getMonth()]
+  } ${weddingDate.getFullYear()}`;
   const bigDayLabel = `${weddingDate.getDate()}${ordinal(weddingDate.getDate())} ${
     MONTHS[weddingDate.getMonth()]
   } ${weddingDate.getFullYear()}`;
@@ -93,7 +93,7 @@ export default function DesignHero({ guestName = "" }: { guestName?: string }) {
               fontSize: "max(10px, 1.9cqw)",
               letterSpacing: "0.28em",
               textTransform: "uppercase",
-              color: "#b8964f",
+              color: "#7d5f1f",
               marginTop: "1cqw",
             }}
           >
@@ -173,7 +173,7 @@ export default function DesignHero({ guestName = "" }: { guestName?: string }) {
               fontStyle: "italic",
               fontSize: "5cqw",
               lineHeight: 1.2,
-              color: "#b8964f",
+              color: "#7d5f1f",
             }}
           >
             &amp;
@@ -195,7 +195,8 @@ export default function DesignHero({ guestName = "" }: { guestName?: string }) {
               fontFamily: "'Jost', sans-serif",
               fontWeight: 400,
               fontSize: "max(12px, 2.4cqw)",
-              letterSpacing: "0.3em",
+              letterSpacing: "0.18em",
+              textTransform: "uppercase",
               color: "#0f3d38",
               marginTop: "1.8cqw",
             }}

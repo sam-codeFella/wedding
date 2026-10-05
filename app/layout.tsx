@@ -1,8 +1,15 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { couple, city } from "@/lib/config";
 import "./globals.css";
 
+// Set NEXT_PUBLIC_SITE_URL to the live domain so share-preview image URLs are absolute.
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
+
+export const viewport: Viewport = { themeColor: "#0d3833" };
+
 export const metadata: Metadata = {
+  ...(siteUrl ? { metadataBase: new URL(siteUrl) } : {}),
+  robots: { index: false, follow: false },
   title: `${couple.groom} & ${couple.bride} — Wedding Invitation`,
   description: `You are warmly invited to the wedding of ${couple.groom} & ${couple.bride}, December 2026, ${city}.`,
   icons: {
@@ -16,7 +23,9 @@ export const metadata: Metadata = {
   openGraph: {
     title: `${couple.groom} & ${couple.bride} — Wedding Invitation`,
     description: `Join us in ${city} this December. Tap to see the schedule and RSVP.`,
+    images: [{ url: "/og.jpg", width: 1200, height: 630, alt: `${couple.groom} & ${couple.bride}` }],
   },
+  twitter: { card: "summary_large_image", images: ["/og.jpg"] },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
