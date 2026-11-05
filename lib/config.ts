@@ -124,7 +124,7 @@ export const googleForm = {
   // Checkbox option labels in the form, keyed by event id above:
   eventLabels: {
     haldi: "Haldi",
-    nikah: "Nikkah",
+    nikah: "Wedding",
     reception: "Reception",
   } as Record<string, string>,
 };
